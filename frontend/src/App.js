@@ -1,10 +1,13 @@
-import './App.css';
-
+import React from 'react';
+import { Routes, Route } from 'react-router-dom';
+import SignUp from './pages/SignUp';
+import Home from './pages/Home';
 function App() {
   return (
-    <div className="min-h-screen bg-gray-100 flex items-center justify-center">
-      <h1 className="text-4xl font-bold text-blue-600">Hello Tailwind + React!</h1>
-    </div>
+    <Routes>
+    <Route path='/' element={<Home />} />
+    <Route path='/signup' element={<SignUp />} />
+  </Routes>
   );
 }
 
