@@ -2,9 +2,12 @@ const express = require('express');
 const router=express.Router();
 const User=require('../models/userModels');
 const bcrypt = require('bcryptjs');
-const generateToken = require('../utils/generateToken');
+const jwt = require('jsonwebtoken');
 
-// POST request to sign up a new user
+const JWT_SECRET = 'mySuperSecretKey123456$!@#';
+
+
+//  sign up a new user
 router.post('/signup', async (req, res) => {
     const { name, email, password, role } = req.body;
   
@@ -41,8 +44,8 @@ router.post('/signup', async (req, res) => {
     }
   });
 
-// Login Route (Authenticate User)
-router.post('/login', async (req, res) => {
+//sign in
+router.post('/signin', async (req, res) => {
     const { email, password } = req.body;
   
     try {
@@ -51,20 +54,21 @@ router.post('/login', async (req, res) => {
         return res.status(400).json({ message: 'Invalid credentials' });
       }
   
-      // Check password
-      const isMatch = await bcrypt.compare(password, user.password);
+      const isMatch = await user.matchPassword(password);
       if (!isMatch) {
         return res.status(400).json({ message: 'Invalid credentials' });
       }
   
-      // Generate JWT token
-      const token = generateToken(user._id);
+      const token = jwt.sign({ userId: user._id, email: user.email, role: user.role }, JWT_SECRET, { expiresIn: '1h' });
   
       res.status(200).json({
-        message: 'Login successful',
+        message: 'Signed in successfully',
         token,
-        userId: user._id,
-        role: user.role,
+        user: {
+          name: user.name,
+          email: user.email,
+          role: user.role,
+        }
       });
     } catch (error) {
       console.error(error);

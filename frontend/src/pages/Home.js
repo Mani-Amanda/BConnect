@@ -7,6 +7,9 @@ const Home = () => {
   const handleSignUp = () => {
     navigate("/signup");
   };
+  const handleSignIn = () => {
+    navigate("/signin");
+  };
 
   return (
     <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100">
@@ -19,6 +22,12 @@ const Home = () => {
         className="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition"
       >
         Sign Up
+      </button>
+      <button
+        onClick={handleSignIn}
+        className="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition"
+      >
+        Sign In
       </button>
     </div>
   );
