@@ -12,11 +12,10 @@ const Home = () => {
     <><Navbar/>
     <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100 pt-20">
     <div className="relative w-full">
-  {/* Background Image */}
-  <div
-    className="absolute inset-0 bg-cover bg-center opacity-20"
-    style={{ backgroundImage: "url('/bg.jpg')" }} // Use path relative to the public folder
-  ></div>
+    <div
+      className="absolute inset-0 bg-cover bg-center opacity-20"
+      style={{ backgroundImage: "url('/bg.jpg')" }} 
+    ></div>
 
   {/* Overlay Content */}
   <div className="relative z-10 flex flex-col items-center justify-center min-h-[70vh] px-4 pt-12 pb-20">
