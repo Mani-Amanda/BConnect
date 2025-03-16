@@ -6,7 +6,7 @@ const UserDashboard = () => {
   const [businesses, setBusinesses] = useState([]);
   const [filteredBusinesses, setFilteredBusinesses] = useState([]);
   const [name, setName] = useState('');
-  const [categories, setCategories] = useState(['restaurant', 'salon', 'supermarket', 'healthcare', 'education', 'other']);
+  const [categories, setCategories] = useState(['resturant', 'salon', 'supermarket', 'healthcare', 'education', 'other']);
   const [selectedCategory, setSelectedCategory] = useState('');
   const [selectedCity, setSelectedCity] = useState('');
   const [error, setError] = useState('');
@@ -14,7 +14,7 @@ const UserDashboard = () => {
 
   // Pagination 
   const [currentPage, setCurrentPage] = useState(1);
-  const [pageSize] = useState(5);
+  const [pageSize] = useState(6);
   const [totalPages, setTotalPages] = useState(1);
 
   const handleLogout = () => {

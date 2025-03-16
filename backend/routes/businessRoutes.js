@@ -4,46 +4,48 @@ const Business=require('../models/businessModel');
 
 //Create New Business Profile
 router.post('/', async (request, response) => {
-    try {
-      if(
-        !request.body.owner ||
-        !request.body.name||
-        !request.body.category||
-        !request.body.description||
-        !request.body.city||
-        !request.body.address||
-        !request.body.email||
-        !request.body.phone
-
-    ){
-        return response.status(400).send({
-            message:'Send all required feilds: owner, name, category, desciption, city, address, email, phone',
-        });
+  try {
+    if (
+      !request.body.owner ||
+      !request.body.name ||
+      !request.body.category ||
+      !request.body.description ||
+      !request.body.city ||
+      !request.body.address ||
+      !request.body.email ||
+      !request.body.phone
+    ) {
+      return response.status(400).send({
+        message: 'Send all required fields: owner, name, category, description, city, address, email, phone',
+      });
     }
-    const newProfile={
+
+    const newProfile = {
       owner: request.body.owner,
       name: request.body.name,
       category: request.body.category,
-      description:request.body.description,
-      city:request.body.city,
-      address:request.body.address,
-      email:request.body.email,
-      phone:request.body.phone,
+      description: request.body.description,
+      city: request.body.city,
+      address: request.body.address,
+      email: request.body.email,
+      phone: request.body.phone,
     };
-      
-      const savedProfile = await Business.create(newProfile);
-      res.status(201).json(savedProfile);
-    } catch (err) {
-      console.log(error.message);
-      res.status(500).json({ error: error.message });
-    }
-  });
+
+    const savedProfile = await Business.create(newProfile);
+    response.status(201).json(savedProfile); 
+
+  } catch (err) {
+    console.log(err.message); 
+    response.status(500).json({ error: err.message }); 
+  }
+});
+
 
   //Get all Business Profiles
   router.get('/', async (req, res) => {
     try {
       const businesses = await Business.find();  
-      res.json(businesses); // Send the businesses data as a response
+      res.json(businesses);
     } catch (err) {
       res.status(500).json({ message: 'Server error' });
     }
