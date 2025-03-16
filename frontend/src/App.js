@@ -5,6 +5,8 @@ import Home from './pages/Home';
 import SignIn from './pages/SignIn';
 import OwnerDashboard from './pages/OwnerDashboard';
 import UserDashboard from './pages/UserDashboard';
+import BusinessProfileForm from './pages/BusinessProfileForm';
+import EditBusiness from './pages/EditBusiness';
 function App() {
   return (
     <Routes>
@@ -13,6 +15,11 @@ function App() {
     <Route path='/signin' element={<SignIn />} />
     <Route path='/owner/:id' element={<OwnerDashboard/>} />
     <Route path='/user/:id' element={<UserDashboard />} />
+    <Route path='/owner/:id/create-business' element={<BusinessProfileForm/>} />
+    <Route path="/owner/edit-business/:businessId" element={<EditBusiness/>} />
+
+
+
   </Routes>
   );
 }

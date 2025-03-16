@@ -3,6 +3,7 @@ import { PORT,mongoDBURL } from "./config.js";
 import mongoose from "mongoose";
 import cors from 'cors';
 import userRoute from './routes/userRoutes.js';
+import businessRoute from './routes/businessRoutes.js';
 
 const app=express();
 app.use(express.json());
@@ -20,6 +21,7 @@ app.get('/',(request,response)=>{
 });
 
 app.use('/',userRoute);
+app.use('/business',businessRoute);
 
 
 mongoose

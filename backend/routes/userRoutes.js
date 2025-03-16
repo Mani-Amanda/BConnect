@@ -67,7 +67,7 @@ router.post('/signin', async (req, res) => {
         user: {
           name: user.name,
           email: user.email,
-          role: user.role,
+          userId: user._id,
         }
       });
     } catch (error) {
