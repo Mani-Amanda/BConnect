@@ -15,12 +15,11 @@ const SignIn = () => {
     try {
       const response = await axios.post('http://localhost:5555/signin', { email, password});
 
-      // Store JWT token in localStorage
+      // Store JWT token and userId in localStorage
       const token = response.data.token;
-      const userId=response.data.user.userId;
+      const userId = response.data.user.userId;
       localStorage.setItem('token', token);
       localStorage.setItem('userId', userId);
-
 
       // Decode the token to get the role
       const decoded = jwtDecode(token);
@@ -41,7 +40,7 @@ const SignIn = () => {
   return (
     <div className="flex items-center justify-center min-h-screen bg-gray-100">
       <div className="bg-white p-8 rounded-xl shadow-lg w-full max-w-md">
-        <h2 className="text-2xl font-bold mb-6 text-center">Sign In</h2>
+        <h2 className="text-2xl font-bold mb-6 text-center text-green-700">Sign In</h2>
 
         {error && <p className="text-red-500 text-sm mb-4 text-center">{error}</p>}
 
@@ -53,7 +52,7 @@ const SignIn = () => {
               name="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              className="mt-1 w-full border border-gray-300 px-3 py-2 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="mt-1 w-full border border-gray-300 px-3 py-2 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500"
               placeholder="Enter Your Email"
             />
           </div>
@@ -65,14 +64,14 @@ const SignIn = () => {
               name="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              className="mt-1 w-full border border-gray-300 px-3 py-2 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="mt-1 w-full border border-gray-300 px-3 py-2 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500"
               placeholder="Enter Your Password"
             />
           </div>
 
           <button
             type="submit"
-            className="w-full bg-blue-600 text-white py-2 rounded-md hover:bg-blue-700 transition"
+            className="w-full bg-green-600 text-white py-2 rounded-md hover:bg-green-700 transition"
           >
             Sign In
           </button>

@@ -61,27 +61,27 @@ const EditBusiness = () => {
 
   return (
     <div className="max-w-2xl mx-auto mt-10 bg-white p-8 shadow-lg rounded-2xl">
-      <h2 className="text-2xl font-bold mb-6 text-center text-gray-800">Edit Business</h2>
+      <h2 className="text-2xl font-bold mb-6 text-center text-green-800">Edit Business</h2>
       <form onSubmit={handleSubmit} className="space-y-5">
         <div>
-          <label className="block text-gray-700 font-medium mb-1">Name</label>
+          <label className="block text-green-700 font-medium mb-1">Name</label>
           <input
             type="text"
             name="name"
             value={formData.name || ''}
             onChange={handleChange}
-            className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
-            required
+            className="w-full border border-green-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-green-500"
+            
           />
         </div>
 
         <div>
-          <label className="block text-gray-700 font-medium mb-1">Category</label>
+          <label className="block text-green-700 font-medium mb-1">Category</label>
           <select
             name="category"
             value={formData.category || ''}
             onChange={handleChange}
-            className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="w-full border border-green-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-green-500"
             required
           >
             <option value="">-- Select Category --</option>
@@ -94,67 +94,67 @@ const EditBusiness = () => {
         </div>
 
         <div>
-          <label className="block text-gray-700 font-medium mb-1">Description</label>
+          <label className="block text-green-700 font-medium mb-1">Description</label>
           <textarea
             name="description"
             value={formData.description || ''}
             onChange={handleChange}
-            className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
-            required
+            className="w-full border border-green-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-green-500"
+            
           />
         </div>
 
         <div>
-          <label className="block text-gray-700 font-medium mb-1">City</label>
+          <label className="block text-green-700 font-medium mb-1">City</label>
           <input
             type="text"
             name="city"
             value={formData.city || ''}
             onChange={handleChange}
-            className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
-            required
+            className="w-full border border-green-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-green-500"
+        
           />
         </div>
 
         <div>
-          <label className="block text-gray-700 font-medium mb-1">Address</label>
+          <label className="block text-green-700 font-medium mb-1">Address</label>
           <input
             type="text"
             name="address"
             value={formData.address || ''}
             onChange={handleChange}
-            className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
-            required
+            className="w-full border border-green-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-green-500"
+            
           />
         </div>
 
         <div>
-          <label className="block text-gray-700 font-medium mb-1">Email</label>
+          <label className="block text-green-700 font-medium mb-1">Email</label>
           <input
             type="email"
             name="email"
             value={formData.email || ''}
             onChange={handleChange}
-            className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
-            required
+            className="w-full border border-green-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-green-500"
+            
           />
         </div>
 
         <div>
-          <label className="block text-gray-700 font-medium mb-1">Phone</label>
+          <label className="block text-green-700 font-medium mb-1">Phone</label>
           <input
             type="text"
             name="phone"
             value={formData.phone || ''}
             onChange={handleChange}
-            className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
-            required
+            className="w-full border border-green-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-green-500"
+            
           />
         </div>
 
         <button
           type="submit"
-          className="w-full bg-blue-600 text-white font-semibold py-2 rounded-lg hover:bg-blue-700 transition duration-200"
+          className="w-full bg-green-600 text-white font-semibold py-2 rounded-lg hover:bg-green-700 transition duration-200"
         >
           Update Business
         </button>

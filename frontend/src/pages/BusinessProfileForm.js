@@ -1,4 +1,4 @@
-import React, { useState,useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
 const BusinessProfileForm = () => {
@@ -16,7 +16,7 @@ const BusinessProfileForm = () => {
   const [message, setMessage] = useState("");
 
   useEffect(() => {
-    const ownerId = localStorage.getItem("userId");  
+    const ownerId = localStorage.getItem("userId");
     if (ownerId) {
       setFormData((prev) => ({ ...prev, owner: ownerId }));
     }
@@ -50,8 +50,8 @@ const BusinessProfileForm = () => {
   };
 
   return (
-    <div className="max-w-xl mx-auto p-6 bg-white shadow-md rounded-md mt-10">
-      <h2 className="text-2xl font-bold mb-6">Create Business</h2>
+    <div className="max-w-xl mx-auto p-6 bg-green-100 shadow-md rounded-md mt-10">
+      <h2 className="text-2xl font-bold mb-6 text-green-800">Create Business</h2>
       {message && <p className="mb-4 text-green-600">{message}</p>}
       <form onSubmit={handleSubmit} className="space-y-4">
         <input
@@ -61,13 +61,13 @@ const BusinessProfileForm = () => {
           value={formData.name}
           onChange={handleChange}
           required
-          className="w-full border p-2 rounded"
+          className="w-full border p-2 rounded bg-white text-green-700"
         />
         <select
           name="category"
           value={formData.category}
           onChange={handleChange}
-          className="w-full border p-2 rounded"
+          className="w-full border p-2 rounded bg-white text-green-700"
           required
         >
           <option value="resturant">Restaurant</option>
@@ -82,7 +82,7 @@ const BusinessProfileForm = () => {
           placeholder="Description"
           value={formData.description}
           onChange={handleChange}
-          className="w-full border p-2 rounded"
+          className="w-full border p-2 rounded bg-white text-green-700"
         />
         <input
           type="text"
@@ -91,7 +91,7 @@ const BusinessProfileForm = () => {
           value={formData.city}
           onChange={handleChange}
           required
-          className="w-full border p-2 rounded"
+          className="w-full border p-2 rounded bg-white text-green-700"
         />
         <input
           type="text"
@@ -100,7 +100,7 @@ const BusinessProfileForm = () => {
           value={formData.address}
           onChange={handleChange}
           required
-          className="w-full border p-2 rounded"
+          className="w-full border p-2 rounded bg-white text-green-700"
         />
         <input
           type="email"
@@ -109,7 +109,7 @@ const BusinessProfileForm = () => {
           value={formData.email}
           onChange={handleChange}
           required
-          className="w-full border p-2 rounded"
+          className="w-full border p-2 rounded bg-white text-green-700"
         />
         <input
           type="text"
@@ -118,11 +118,11 @@ const BusinessProfileForm = () => {
           value={formData.phone}
           onChange={handleChange}
           required
-          className="w-full border p-2 rounded"
+          className="w-full border p-2 rounded bg-white text-green-700"
         />
         <button
           type="submit"
-          className="w-full bg-blue-600 text-white p-2 rounded hover:bg-blue-700"
+          className="w-full bg-green-600 text-white p-2 rounded hover:bg-green-700"
         >
           Submit
         </button>

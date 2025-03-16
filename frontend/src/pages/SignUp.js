@@ -10,7 +10,7 @@ const SignUp = () => {
   const [role, setRole] = useState('user'); 
   const [error, setError] = useState('');
 
-  const navigate=useNavigate();
+  const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -31,7 +31,7 @@ const SignUp = () => {
   return (
     <div className="flex items-center justify-center min-h-screen bg-gray-100">
       <div className="bg-white p-8 rounded-xl shadow-lg w-full max-w-md">
-        <h2 className="text-2xl font-bold mb-6 text-center">Sign Up</h2>
+        <h2 className="text-2xl font-bold mb-6 text-center text-green-700">Sign Up</h2>
 
         {error && (
           <p className="text-red-500 text-sm mb-4 text-center">{error}</p>
@@ -48,7 +48,7 @@ const SignUp = () => {
               placeholder="Enter Your Name"
               value={name}
               onChange={(e) => setName(e.target.value)}
-              className="mt-1 w-full border border-gray-300 px-3 py-2 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="mt-1 w-full border border-gray-300 px-3 py-2 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500"
             />
           </div>
 
@@ -61,7 +61,7 @@ const SignUp = () => {
               name="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              className="mt-1 w-full border border-gray-300 px-3 py-2 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="mt-1 w-full border border-gray-300 px-3 py-2 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500"
               placeholder="Enter Your Email"
             />
           </div>
@@ -75,7 +75,7 @@ const SignUp = () => {
               name="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              className="mt-1 w-full border border-gray-300 px-3 py-2 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="mt-1 w-full border border-gray-300 px-3 py-2 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500"
               placeholder="Enter Your Password"
             />
           </div>
@@ -88,7 +88,7 @@ const SignUp = () => {
               name="role"
               value={role}
               onChange={(e) => setRole(e.target.value)}
-              className="mt-1 w-full border border-gray-300 px-3 py-2 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="mt-1 w-full border border-gray-300 px-3 py-2 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500"
             >
               <option value="user">User</option>
               <option value="business_owner">Business Owner</option>
@@ -97,7 +97,7 @@ const SignUp = () => {
 
           <button
             type="submit"
-            className="w-full bg-blue-600 text-white py-2 rounded-md hover:bg-blue-700 transition"
+            className="w-full bg-green-600 text-white py-2 rounded-md hover:bg-green-700 transition"
           >
             Sign Up
           </button>
@@ -106,7 +106,7 @@ const SignUp = () => {
         <div className="mt-4 text-center">
           <p>
             Already have an account?{" "}
-            <Link to="/signin" className="text-blue-600">Login here</Link>
+            <Link to="/signin" className="text-green-600 hover:text-green-700">Signin here</Link>
           </p>
         </div>
       </div>

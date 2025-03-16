@@ -43,6 +43,7 @@ router.post('/', async (request, response) => {
   router.get('/', async (req, res) => {
     try {
       const businesses = await Business.find();  
+      res.json(businesses); // Send the businesses data as a response
     } catch (err) {
       res.status(500).json({ message: 'Server error' });
     }

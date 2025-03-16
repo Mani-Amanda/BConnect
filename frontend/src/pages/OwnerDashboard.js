@@ -9,6 +9,11 @@ const OwnerDashboard = () => {
   
   const ownerId = localStorage.getItem('userId'); 
 
+  const handleLogout = () => {
+    localStorage.removeItem('token'); 
+    navigate('/signin');
+  };
+
   useEffect(() => {
     const fetchBusinesses = async () => {
       try {
@@ -49,29 +54,35 @@ const OwnerDashboard = () => {
   };
 
   return (
-    <div className="max-w-7xl mx-auto p-4">
-      <h1 className="text-3xl font-semibold mb-6">Welcome to Your Dashboard</h1>
-      <button
-        onClick={handleCreateBusinessProfile}
-        className="bg-blue-500 text-white py-2 px-4 rounded-md mb-6 hover:bg-blue-600"
-      >
-        Create New Business Profile
-      </button>
+    <div className="max-w-7xl mx-auto p-6 bg-green-50 min-h-screen">
+      <h1 className="text-3xl font-semibold text-green-800 mb-6 text-center">Welcome to Your Dashboard</h1>
       
-      {error && <p className="text-red-500 mb-4">{error}</p>}
+      <div className="flex justify-between mb-6">
+        <button
+          onClick={handleCreateBusinessProfile}
+          className="bg-green-600 text-white py-2 px-6 rounded-md shadow-md hover:bg-green-700 transition duration-300"
+        >
+          Create New Business Profile
+        </button>
+        <button onClick={handleLogout} className="bg-red-600 text-white px-6 py-2 rounded-md shadow-md hover:bg-red-700 transition duration-300">
+          Logout
+        </button>
+      </div>
+      
+      {error && <p className="text-red-600 text-center mb-4">{error}</p>}
 
-      <h2 className="text-2xl font-semibold mb-4">Your Business Profiles</h2>
+      <h2 className="text-2xl font-semibold text-green-700 mb-4 text-center">Your Business Profiles</h2>
       
       {businesses.length === 0 ? (
-        <p>No businesses found.</p>
+        <p className="text-center text-gray-600">No businesses found.</p>
       ) : (
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
           {businesses.map((business) => (
             <div
               key={business._id}
-              className="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300"
+              className="bg-white p-6 rounded-lg shadow-lg hover:shadow-2xl transition-shadow duration-300"
             >
-              <h3 className="text-xl font-semibold text-blue-500 mb-2">{business.name}</h3>
+              <h3 className="text-xl font-semibold text-green-600 mb-2">{business.name}</h3>
               <p className="text-gray-700 mb-2"><strong>Category:</strong> {business.category}</p>
               <p className="text-gray-700 mb-2"><strong>Description:</strong> {business.description || 'No Description'}</p>
               <p className="text-gray-700 mb-2"><strong>City:</strong> {business.city}</p>
@@ -82,13 +93,13 @@ const OwnerDashboard = () => {
               <div className="flex justify-between">
                 <button
                   onClick={() => handleEditBusiness(business._id)}
-                  className="bg-yellow-500 text-white py-1 px-3 rounded-md hover:bg-yellow-600"
+                  className="bg-yellow-500 text-white py-1 px-3 rounded-md hover:bg-yellow-600 transition duration-200"
                 >
                   Edit
                 </button>
                 <button
                   onClick={() => handleDeleteBusiness(business._id)}
-                  className="bg-red-500 text-white py-1 px-3 rounded-md hover:bg-red-600"
+                  className="bg-red-600 text-white py-1 px-3 rounded-md hover:bg-red-700 transition duration-200"
                 >
                   Delete
                 </button>
