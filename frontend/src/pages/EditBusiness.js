@@ -18,8 +18,6 @@ const EditBusiness = () => {
 
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
-
-  // Enum options
   const categoryOptions = ['resturant', 'salon','supermarket','healthcare','education','other'];
 
   useEffect(() => {

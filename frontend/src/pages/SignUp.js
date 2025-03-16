@@ -1,27 +1,26 @@
 import React, { useState } from "react";
 import { Link } from 'react-router-dom';
 import axios from 'axios';
+import { useNavigate } from "react-router-dom";
 
 const SignUp = () => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [role, setRole] = useState('user'); // Default to 'user'
+  const [role, setRole] = useState('user'); 
   const [error, setError] = useState('');
+
+  const navigate=useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    
-    // Clear previous error
-    setError('');
 
     axios
       .post('http://localhost:5555/signup', { name, email, password, role })
       .then((result) => {
         console.log(result);
         alert('Sign Up successfully');
-        // You could redirect here if needed
-        // window.location.href = '/login';
+        navigate('/signin');
       })
       .catch((error) => {
         console.log(error);
@@ -107,7 +106,7 @@ const SignUp = () => {
         <div className="mt-4 text-center">
           <p>
             Already have an account?{" "}
-            <Link to="/login" className="text-blue-600">Login here</Link>
+            <Link to="/signin" className="text-blue-600">Login here</Link>
           </p>
         </div>
       </div>

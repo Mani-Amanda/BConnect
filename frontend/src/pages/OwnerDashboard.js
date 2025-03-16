@@ -7,7 +7,7 @@ const OwnerDashboard = () => {
   const [error, setError] = useState('');
   const navigate = useNavigate();
   
-  const ownerId = localStorage.getItem('userId');  // Get the logged-in owner's ID from localStorage
+  const ownerId = localStorage.getItem('userId'); 
 
   useEffect(() => {
     const fetchBusinesses = async () => {
@@ -41,7 +41,7 @@ const OwnerDashboard = () => {
   
     try {
       await axios.delete(`http://localhost:5555/business/${businessId}`);
-      setBusinesses(businesses.filter((business) => business._id !== businessId)); // Remove deleted business from the state
+      setBusinesses(businesses.filter((business) => business._id !== businessId));
     } catch (err) {
       setError('Error deleting business');
       console.error(err);
@@ -73,7 +73,7 @@ const OwnerDashboard = () => {
             >
               <h3 className="text-xl font-semibold text-blue-500 mb-2">{business.name}</h3>
               <p className="text-gray-700 mb-2"><strong>Category:</strong> {business.category}</p>
-              <p className="text-gray-700 mb-2"><strong>Description:</strong> {business.description || 'N/A'}</p>
+              <p className="text-gray-700 mb-2"><strong>Description:</strong> {business.description || 'No Description'}</p>
               <p className="text-gray-700 mb-2"><strong>City:</strong> {business.city}</p>
               <p className="text-gray-700 mb-2"><strong>Address:</strong> {business.address}</p>
               <p className="text-gray-700 mb-2"><strong>Email:</strong> {business.email}</p>

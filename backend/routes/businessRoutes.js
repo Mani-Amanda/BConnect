@@ -2,6 +2,7 @@ const express=require('express');
 const router=express.Router();
 const Business=require('../models/businessModel');
 
+//Create New Business Profile
 router.post('/', async (request, response) => {
     try {
       if(
@@ -38,6 +39,16 @@ router.post('/', async (request, response) => {
     }
   });
 
+  //Get all Business Profiles
+  router.get('/', async (req, res) => {
+    try {
+      const businesses = await Business.find();  
+    } catch (err) {
+      res.status(500).json({ message: 'Server error' });
+    }
+  });
+
+//Get Bussiness profilew that each owner owns
   router.get('/:ownerId', async (req, res) => {
     try {
       const { ownerId } = req.params;
@@ -53,19 +64,18 @@ router.post('/', async (request, response) => {
     }
   });
 
+  //Update Bussiness Profile
   router.put('/:businessId', async (req, res) => {
     try {
-      const { businessId } = req.params;  // Get business ID from the URL
-      const updatedData = req.body;  // Get updated data from the request body
+      const { businessId } = req.params; 
+      const updatedData = req.body; 
   
-      // Update the business using findByIdAndUpdate
       const updatedBusiness = await Business.findByIdAndUpdate(businessId, updatedData, { new: true });
   
       if (!updatedBusiness) {
         return res.status(404).json({ message: 'Business not found' });
       }
   
-      // Return the updated business data
       res.json(updatedBusiness);
     } catch (err) {
       console.error(err);
@@ -73,6 +83,7 @@ router.post('/', async (request, response) => {
     }
   });
 
+  //Delete business Profile
   router.delete('/:businessId', async (req, res) => {
     try {
       const { businessId } = req.params;
@@ -89,4 +100,5 @@ router.post('/', async (request, response) => {
       res.status(500).json({ message: 'Server error' });
     }
   });
+
   module.exports = router;

@@ -11,10 +11,8 @@ const SignIn = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setError(''); // Clear previous errors
 
     try {
-      // Send POST request to sign-in route
       const response = await axios.post('http://localhost:5555/signin', { email, password});
 
       // Store JWT token in localStorage
@@ -27,11 +25,11 @@ const SignIn = () => {
       // Decode the token to get the role
       const decoded = jwtDecode(token);
 
-      // Redirect based on role
+      // Role Base Access
       if (decoded.role === 'business_owner') {
-        navigate(`/owner/${userId}`);  // Redirect to the owner dashboard
+        navigate(`/owner/${userId}`);  
       } else if (decoded.role === 'user') {
-        navigate(`/user/${userId}`);  // Redirect to the user dashboard
+        navigate(`/user/${userId}`);  
       }
 
     } catch (err) {
